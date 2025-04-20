@@ -9,7 +9,7 @@ RSpec.describe StringExpressionEvaluator do
     end
 
     it 'returns number for a single number input' do
-        expect(described_class.add("1")).to eq(0)
+        expect(described_class.add("1")).to eq(1)
     end  
 
     it 'return sum of two comma seperated numbers' do 
@@ -21,6 +21,10 @@ RSpec.describe StringExpressionEvaluator do
     end 
 
     it 'handles custom delimiter string' do 
+        expect(described_class.add("//;\n1;2")).to eq(3)
+    end 
+
+    it 'handles custom delimiter and new line string' do 
         expect(described_class.add("//;\n1;2")).to eq(3)
     end 
     #
