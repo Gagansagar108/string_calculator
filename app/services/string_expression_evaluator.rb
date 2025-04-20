@@ -10,11 +10,16 @@ class StringExpressionEvaluator
         delimiter = delimiter_line[2..]
       end
   
-      sum_ = numbers_string
+      numbers = numbers_string
                   .gsub("\n", delimiter)
                   .split(delimiter)
-                  .map(&:to_i)
+          
+     
+      negatives = numbers.select { |n| n < 0 }
+      raise "negative numbers not allowed #{negatives.join(',')}" if negatives.any?
+      bindig.pry
+      numbers.sum
 
-      return sum_
+
     end
 end
