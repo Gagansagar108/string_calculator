@@ -15,6 +15,10 @@ RSpec.describe StringExpressionEvaluator do
     it 'return sum of two comma seperated numbers' do 
         expect(described_class.add("5,10")).to eq(15)
     end 
+
+    it 'handles new lined between the number' do 
+        expect(described_class.add("5\n11")).to eq(16)
+    end 
     #
 
     #Empty string returns 0
