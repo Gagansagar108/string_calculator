@@ -17,9 +17,7 @@ class StringExpressionEvaluator
      
       negatives = numbers.select { |n| n < 0 }
       raise "negative numbers not allowed #{negatives.join(',')}" if negatives.any?
-      binding.pry
+     
       numbers.sum
-
-
     end
 end
