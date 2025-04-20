@@ -12,12 +12,12 @@ class StringExpressionEvaluator
   
       numbers = numbers_string
                   .gsub("\n", delimiter)
-                  .split(delimiter)
+                  .split(delimiter).map(&:to_i)
           
      
       negatives = numbers.select { |n| n < 0 }
       raise "negative numbers not allowed #{negatives.join(',')}" if negatives.any?
-      bindig.pry
+      binding.pry
       numbers.sum
 
 
