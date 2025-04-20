@@ -44,18 +44,18 @@ RSpec.describe StringExpressionEvaluator do
 
 
     it 'remove extra blank space' do
-        expect(evaluator.add(" 1 , 2 ")).to eq(3)
+        expect(described_class.add(" 1 , 2 ")).to eq(3)
     end
     
 
     it 'Should ignore an unnecessary trailing newline at the end' do
-        expect(evaluator.add("1,2\n")).to eq(3)
+        expect(described_class.add("1,2\n")).to eq(3)
     end
     
 
     it "Should correctly use special characters (e.g., |, *, $) as delimiters" do
-        expect(evaluator.add("//|\n1|2")).to eq(3)
-        expect(evaluator.add("//*\n2*3")).to eq(5)
+        expect(described_class.add("//|\n1|2")).to eq(3)
+        expect(described_class.add("//*\n2*3")).to eq(5)
     end
     
 
