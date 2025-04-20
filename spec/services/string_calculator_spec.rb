@@ -41,6 +41,22 @@ RSpec.describe StringExpressionEvaluator do
           described_class.add("1,-2,3,-4")
         }.to raise_error("negative numbers not allowed -2,-4")
     end
+
+
+    it 'remove extra blank space' do
+        expect(evaluator.add(" 1 , 2 ")).to eq(3)
+    end
+    
+
+    it 'Should ignore an unnecessary trailing newline at the end' do
+        expect(evaluator.add("1,2\n")).to eq(3)
+    end
+    
+
+    it "Should correctly use special characters (e.g., |, *, $) as delimiters" do
+        expect(evaluator.add("//|\n1|2")).to eq(3)
+        expect(evaluator.add("//*\n2*3")).to eq(5)
+    end
     
 
     #
@@ -66,18 +82,6 @@ RSpec.describe StringExpressionEvaluator do
     #Input with extra whitespace
     
     #Input with trailing newline
-    
-    #Custom delimiter that's a special character
-    
-    #Custom delimiter as a multi-character string
-    
-    #Ignore numbers greater than 1000
-    
-    #Input with no numbers
-    
-    #nput with mixed invalid tokens
-
-
 
 
 
