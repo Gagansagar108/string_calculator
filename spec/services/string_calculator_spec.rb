@@ -32,7 +32,7 @@ RSpec.describe StringExpressionEvaluator do
     it 'raises an error for negative numbers' do
         expect {
           described_class.add("-2")
-        }.to raise_error("negative numbers not allowed -2,-4")
+        }.to raise_error("negative numbers not allowed -2")
     end
 
 
