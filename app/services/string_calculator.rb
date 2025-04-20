@@ -1,4 +1,4 @@
-class StringCalculator
+class StringExpressionEvaluator 
     def self.add(input)
       return 0 if input.strip.empty?
 
